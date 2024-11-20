@@ -21,9 +21,3 @@ Check out the live version of the Weather App:
 1. Open the [live link](https://khushal41.github.io/Weather-App/).  
 2. Enter the name of a city in the input box.  
 3. Hit the search button to see the weather details.  
-
-## Installation  
-If you'd like to run the project locally:  
-1. Clone the repository:  
-   ```bash  
-   git clone https://github.com/Khushal41/Weather-App.git  
