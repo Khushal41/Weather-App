@@ -1,0 +1,306 @@
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Merriweather Sans", sans-serif;
+}
+
+:root {
+    --colorDark1: #0b3d91; /* Darker shade of blue */
+    --colorDark2: #1c7ed6; /* Brighter blue */
+    --colorLight1: #e0e7ff; /* Light pastel blue */
+    --colorLight2: #f8f9fa; /* Very light gray */
+}
+
+body {
+    background-color: #112d4e;
+    background-image: linear-gradient(160deg, #112d4e 0%, #3f72af 100%);
+    color: var(--colorLight2);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    text-transform: uppercase;
+    word-spacing: 2px;
+    letter-spacing: 1.75px;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Tab Container */
+.tabContainer {
+    width: 90%;
+    max-width: 550px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 2rem;
+}
+
+.tab {
+    cursor: pointer;
+    font-size: 0.875rem;
+    letter-spacing: 1.75px;
+    padding: 5px 8px;
+    text-transform: capitalize;
+    background-color: rgba(219, 226, 239, 0.2);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.tab.currentTab {
+    background-color: rgba(219, 226, 239, 0.5);
+}
+
+.tab:hover {
+    background-color: rgba(219, 226, 239, 0.4);
+}
+
+@media (max-width: 600px) {
+    .tab {
+        font-size: 0.75rem;
+        padding: 4px 6px;
+    }
+}
+
+/* Main Container */
+.container {
+    margin-block: 4rem;
+}
+
+/* Button Styling */
+.btn {
+    all: unset;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--colorDark2);
+    color: var(--colorLight2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-image: linear-gradient(145deg, var(--colorDark1), var(--colorDark2));
+}
+
+.btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Container */
+.formContainer {
+    width: 90%;
+    max-width: 550px;
+    margin: 0 auto 2rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.formContainer.active {
+    display: flex;
+}
+
+.formContainer input {
+    all: unset;
+    width: calc(100% - 60px);
+    height: 40px;
+    padding: 0 20px;
+    background-color: rgba(219, 226, 239, 0.5);
+    border-radius: 10px;
+    color: var(--colorLight2);
+}
+
+.formContainer input:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.7);
+}
+
+.formContainer input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.formContainer .btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-radius: 50%;
+}
+
+/* Grant Location Access */
+.grantLocationContainer {
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.grantLocationContainer.active {
+    display: flex;
+}
+
+.grantLocationContainer img {
+    margin-bottom: 1.5rem;
+}
+
+.grantLocationContainer p:first-of-type {
+    font-weight: 600;
+    font-size: 1.75rem;
+}
+
+.grantLocationContainer p:last-of-type {
+    font-size: 0.75rem;
+    margin: 0.75rem 0 1.75rem;
+    font-weight: 300;
+    letter-spacing: 0.75px;
+}
+
+/* Loading Container */
+.loadingContainer {
+    display: none;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loadingContainer.active {
+    display: flex;
+}
+
+.loadingContainer p {
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+/* Weather Info */
+.userInfoContainer {
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: var(--colorLight2);
+}
+
+.userInfoContainer.active {
+    display: flex;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.name img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.userInfoContainer p[data-temp] {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.userInfoContainer p[data-weatherDesc] {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+}
+
+/* Weather Parameters */
+.parameterContainer {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 1.6rem auto 0;
+    flex-wrap: wrap;
+}
+
+.parameter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(219, 226, 239, 0.5);
+    padding: 0.8rem;
+    border-radius: 5px;
+    width: 30%;
+    max-width: 200px;
+    gap: 5px;
+    text-align: center;
+}
+
+.parameter img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.parameterValue {
+    font-size: 0.8rem;
+    font-weight: 200;
+}
+
+@media (max-width: 768px) {
+    .parameter {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .parameter {
+        width: 100%;
+    }
+}
+
+/* Error Container */
+.errorContainer {
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.errorContainer.active {
+    display: flex;
+    gap: 1rem;
+}
+
+.errorContainer img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.errorContainer p {
+    margin-bottom: 1rem;
+}
